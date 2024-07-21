@@ -9,6 +9,8 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+const authRouter = require("./src/routes/auth.route");
+
 const app = express();
 
 app.use(cors());
@@ -51,8 +53,10 @@ app.use(
   })
 );
 
+app.use("/api/v1/auth", authRouter);
+
 app.all("*", (req, res, next) => {
-  const err = new Error(`Cant't find ${req.originalUrl} on this server!`);
+  const err = new Error(`Can't find ${req.originalUrl} on this server!`);
   err.status = "Fail";
   err.statusCode = 400;
 
