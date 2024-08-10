@@ -9,7 +9,7 @@ process.on("uncaughtException", (err) => {
 });
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
-  console.log("DB connection succefull");
+  console.log("DB connection successful");
 });
 
 const port = process.env.PORT || 3000;
