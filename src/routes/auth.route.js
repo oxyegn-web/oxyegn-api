@@ -1,6 +1,6 @@
 const express = require("express");
 const authController = require("../controllers/auth.controller");
-const middelware = require("../middleware/auth.middleware");
+const middleware = require("../middleware/auth.middleware");
 const router = express.Router();
 
 router.post("/signup", authController.signup);
@@ -10,7 +10,7 @@ router.post("/login", authController.login);
 // router.patch("/reset-password/:token", authController.restPassword);
 
 //proteect all route after this middelware
-router.use(middelware.protect);
+router.use(middleware.protect);
 
 // router.patch("/update-my-password", authController.updatePasswrod);
 // router.get("/me", userController.getMe, userController.getUser);
